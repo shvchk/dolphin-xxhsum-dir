@@ -1,0 +1,17 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+Icon=black_sum
+MimeType=inode/directory;
+Actions=xxh64sum;xxh128sum;
+
+
+[Desktop Action xxh64sum]
+Name=xxHash 64 bit checksum
+Icon=black_sum
+Exec=find "%f" -type f -exec xxhsum -H64 '{}' \; > "%f - xxh64sums"
+
+[Desktop Action xxh128sum]
+Name=xxHash 128 bit checksum
+Icon=black_sum
+Exec=find "%f" -type f -exec xxhsum -H128 '{}' \; > "%f - xxh128sums"
