@@ -9,9 +9,9 @@ Actions=xxh64sum;xxh128sum;
 [Desktop Action xxh64sum]
 Name=xxHash 64 bit checksum
 Icon=black_sum
-Exec=find "%f" -type f -exec xxhsum -H64 '{}' \; > "%f - xxh64sums"
+Exec=(f="%f - xxh64sums"; find "%f" -type f -exec xxhsum -H64 '{}' \; > "$f" && sort -V -k 2 -o "$f" "$f")
 
 [Desktop Action xxh128sum]
 Name=xxHash 128 bit checksum
 Icon=black_sum
-Exec=find "%f" -type f -exec xxhsum -H128 '{}' \; > "%f - xxh128sums"
+Exec=(f="%f - xxh64sums"; find "%f" -type f -exec xxhsum -H128 '{}' \; > "$f" && sort -V -k 2 -o "$f" "$f")
