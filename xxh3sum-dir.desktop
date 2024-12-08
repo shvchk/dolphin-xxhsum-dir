@@ -1,0 +1,21 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=KonqPopupMenu/Plugin
+Icon=black_sum
+MimeType=inode/directory;
+Actions=xxh3sum;xxh3sum-recursive;
+
+
+[Desktop Action xxh3sum]
+Name=xxHash 3 checksum
+Name[nl]=xxHash 3 controlesom
+Name[ru]=Контрольная сумма xxHash 3
+Icon=black_sum
+Exec=(f="%f/XXH3SUMS"; find "%f" -type f -maxdepth 1 -exec xxhsum -H3 --tag '{}' \; > "$f" && sed -Ei 's/^XXH3 \\((.+)\\) = ([a-f0-9]+)$/XXH3_\\2  \\1/' "$f" && sort -V -k 2 -o "$f" "$f")
+
+[Desktop Action xxh3sum-recursive]
+Name=xxHash 3 checksum (recursive)
+Name[nl]=xxHash 3 controlesom (recursief)
+Name[ru]=Контрольная сумма xxHash 3 (рекурсивно)
+Icon=black_sum
+Exec=(f="%f/XXH3SUMS"; find "%f" -type f -exec xxhsum -H3 --tag '{}' \; > "$f" && sed -Ei 's/^XXH3 \\((.+)\\) = ([a-f0-9]+)$/XXH3_\\2  \\1/' "$f" && sort -V -k 2 -o "$f" "$f")

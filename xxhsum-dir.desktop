@@ -11,11 +11,11 @@ Name=xxHash 64 bit checksum
 Name[nl]=xxHash 64-bit-controlesom
 Name[ru]=Контрольная сумма xxHash 64 бит
 Icon=black_sum
-Exec=(f="%f - xxh64sums"; find "%f" -type f -exec xxhsum -H64 '{}' \; > "$f" && sort -V -k 2 -o "$f" "$f")
+Exec=(f="%f/XXH64SUMS"; find "%f" -type f -exec xxhsum -H64 '{}' \; > "$f" && sort -V -k 2 -o "$f" "$f")
 
 [Desktop Action xxh128sum]
 Name=xxHash 128 bit checksum
 Name[nl]=xxHash 128-bit-controlesom
 Name[ru]=Контрольная сумма xxHash 128 бит
 Icon=black_sum
-Exec=(f="%f - xxh128sums"; find "%f" -type f -exec xxhsum -H128 '{}' \; > "$f" && sort -V -k 2 -o "$f" "$f")
+Exec=(f="%f/XXH128SUMS"; find "%f" -type f -exec xxhsum -H128 '{}' \; > "$f" && sort -V -k 2 -o "$f" "$f")
